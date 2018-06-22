@@ -32,7 +32,6 @@ const { letterToNumber } = require('./util');
 
 function basic(plaintext) {
   const numbers = plaintext.split('').map(l => letterToNumber(l));
-  console.log(numbers);
   return numbers.reduce((ttl, n) => ttl + n, 0);
 }
 
