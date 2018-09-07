@@ -4,13 +4,13 @@ const hash = require('./hash');
 const start = args => {
   switch (args[2]) {
     case '-e':
-      console.log(encrypt.encryptROT(args.slice(3).join(' '), 13));
+      return console.log(encrypt.encryptROT(args.slice(3).join(' '), 13));
     case '-d':
-      console.log(encrypt.decryptROT(args.slice(3).join(' '), 13));
+      return console.log(encrypt.decryptROT(args.slice(3).join(' '), 13));
     case '-h':
-      console.log(hash.basic(args.slice(3).join(' ')));
+      return console.log(hash.basic(args.slice(3).join(' ')));
     default:
-      console.log(`
+      return console.log(`
 ---- Hash vs. Encrypt! ----
 tool to show the difference between hashing and encrypting
 
@@ -21,6 +21,6 @@ Usage:
 
 `);
   }
-}
+};
 
 start(process.argv);
