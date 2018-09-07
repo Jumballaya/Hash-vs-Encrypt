@@ -32,33 +32,23 @@
  *
  *  PNG -> [P=15, N=13, G=6] -13 = [2=C, 0=A, (-7+26=19)=T] -> CAT
  */
-const { letterToNumber, numberToLetter } = require('./util');
+const { letterToNumber, numberToLetter, rotateLetterBy } = require('./util');
 
-function encryptROT(plaintext, places) {
-  // Convert letters to numbers and add places
-  const numbers = plaintext
+const encryptROT = (plaintext, places) =>
+  plaintext
     .split('')
-    .map(l => letterToNumber(l))
-    .map(l => {
-      const ttl = l + places;
-      return ttl > 25 ? ttl - 26 : ttl;
-    });
-  // Convert numbers to letters and create the new string
-  return numbers.map(n => numberToLetter(n)).join('');
-}
+    .map(letterToNumber)
+    .map(rotateLetterBy(places))
+    .map(numberToLetter)
+    .join('');
 
-function decryptROT(encrypted, places) {
-  // Convert letters to numbers and add places
-  const numbers = encrypted
+const decryptROT = (encrypted, places) =>
+  encrypted
     .split('')
-    .map(l => letterToNumber(l))
-    .map(l => {
-      const ttl = l - places;
-      return ttl < 0 ? ttl + 26 : ttl;
-    });
-  // Convert numbers to letters and create the new string
-  return numbers.map(n => numberToLetter(n)).join('');
-}
+    .map(letterToNumber)
+    .map(rotateLetterBy(-places)) // This is negative because we are rotating back by places amount
+    .map(numberToLetter)
+    .join('');
 
 module.exports = {
   encryptROT,
