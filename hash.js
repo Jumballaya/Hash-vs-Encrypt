@@ -28,9 +28,7 @@
  * big as it can. This makes the hash more secure because the password could be 10 letters long or
  * the entire anthology of Steven King and the hash would be the same amount of characters.
  */
-const { letterToNumber } = require('./util');
-
-const addReducer = (acc, n) => acc + n;
+const { letterToNumber, addReducer } = require('./util');
 
 const basic = plaintext =>
   plaintext
