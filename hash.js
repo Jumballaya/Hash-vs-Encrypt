@@ -30,10 +30,13 @@
  */
 const { letterToNumber } = require('./util');
 
-function basic(plaintext) {
-  const numbers = plaintext.split('').map(l => letterToNumber(l));
-  return numbers.reduce((ttl, n) => ttl + n, 0);
-}
+const addReducer = (acc, n) => acc + n;
+
+const basic = plaintext =>
+  plaintext
+    .split('')
+    .map(letterToNumber)
+    .reduce(addReducer, 0);
 
 module.exports = {
   basic,
