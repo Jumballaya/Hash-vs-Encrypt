@@ -46,7 +46,7 @@ const decryptROT = (encrypted, places) =>
   encrypted
     .split('')
     .map(letterToNumber)
-    .map(rotateLetterBy(places)) // This is negative because we are rotating back by places amount
+    .map(rotateLetterBy(places))
     .map(numberToLetter)
     .join('');
 
