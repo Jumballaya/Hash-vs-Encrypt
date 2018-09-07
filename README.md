@@ -3,7 +3,7 @@
 ## Hashing
 
  Hashing is a 1-way process, meaning that something that is hashed cannot be unhashed
- by going backward through the process like encryption.
+ by going backwards through the process like encryption.
 
  When you hash data it turns it into data that looks wildly different in comparison.
  Hashing is used for a wide-variety of problems ranging from password storage to ensuring
@@ -24,8 +24,8 @@
 
     `pass` -> [p=15, a=0, s=18, s=18] = (15+0+18+18) -> 51
 
- We hashed the password `pass` as `55` so if anyone enters, say `password` they wouldn't get 55.
- Hashing is also more secure when you hashed to fixed sizes rather than letter the hash get as
+ We hashed the password `pass` as `51` so if anyone enters, say `password` they wouldn't get 51.
+ Hashing is also more secure when you hash to fixed sizes rather than let the hash get as
  big as it can. This makes the hash more secure because the password could be 10 letters long or
  the entire anthology of Steven King and the hash would be the same amount of characters.
 
