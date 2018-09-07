@@ -1,19 +1,26 @@
 const encrypt = require('./encrypt');
 const hash = require('./hash');
 
-const args = process.argv;
+const start = args => {
+  switch (args[2]) {
+    case '-e':
+      console.log(encrypt.encryptROT(args.slice(3).join(' '), 13));
+    case '-d':
+      console.log(encrypt.decryptROT(args.slice(3).join(' '), 13));
+    case '-h':
+      console.log(hash.basic(args.slice(3).join(' ')));
+    default:
+      console.log(`
+---- Hash vs. Encrypt! ----
+tool to show the difference between hashing and encrypting
 
-if (args[2] === '-e') {
-  const plaintext = args.slice(3).join(' ');
-  console.log(encrypt.encryptROT(plaintext, 13));
+Usage:
+-e [text]         encrypt to ROT13 text
+-d [text]         decrpyt ROT13 text
+-h [text]         hash text
+
+`);
+  }
 }
 
-if (args[2] === '-d') {
-  const encrypted = args.slice(3).join(' ');
-  console.log(encrypt.decryptROT(encrypted, 13));
-}
-
-if (args[2] === '-h') {
-  const plaintext = args.slice(3).join(' ');
-  console.log(hash.basic(plaintext));
-}
+start(process.argv);
