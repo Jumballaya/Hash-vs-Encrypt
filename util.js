@@ -23,8 +23,11 @@ const rotateLetterBy = places => l =>
     ? ((l + places) - 26)
     : (l + places);
 
+const addReducer = (acc, n) => acc + n;
+
 module.exports = {
   letterToNumber,
   numberToLetter,
   rotateLetterBy,
+  addReducer,
 };
