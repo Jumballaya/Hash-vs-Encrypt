@@ -18,7 +18,13 @@ function numberToLetter(number) {
   return String.fromCharCode(97 + number);
 }
 
+const rotateLetterBy = places => l =>
+  ((l + places) > 25)
+    ? ((l + places) - 26)
+    : (l + places);
+
 module.exports = {
   letterToNumber,
   numberToLetter,
+  rotateLetterBy,
 };
